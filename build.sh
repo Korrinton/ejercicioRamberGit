@@ -1,12 +1,23 @@
+
+
 #!/bin/bash
 
-# Directorio donde se descargará w3.css
+#Ramón Berzosa Pedroche
 css_dir="css"
 mkdir "css"
 mkdir "Web"
+if [ -f "$CSS_FILE" ]; then
+    echo "La hoja de estilos ya ha sido descargada."
+else
+    wget https://www.w3schools.com/w3css/4/w3.css -P "$css" -O "./css/w3.css"
 
 
-wget https://www.w3schools.com/w3css/4/w3.css -P "$css" -O "./css/w3.css"
+ if [ $? -ne 0 ]; then
+        echo "Error al descargar la hoja de estilos."
+        exit 1
+    fi
+fi
+
 
 echo "creando la página principal"
 
